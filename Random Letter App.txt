@@ -1,0 +1,33 @@
+package my_project;
+
+public class MyClass {
+    public static void main(String[] args) {
+    	
+		String randomWord = "";
+		
+    	for (int i = 0; i < 10; i++) {
+    		//get a random ASCII character a-z
+    		int randomCharNumber = (int)Math.floor(Math.random() * 26) + 1;
+    		char randomChar = (char)(randomCharNumber + 96);
+    		
+    		//append to word
+    		randomWord += randomChar;
+    	}
+		System.out.format("Word #1: \t%s\n", randomWord);
+		
+    	for (int i = 2; i < 21; i++) {
+    		int randomCharNumber = (int)Math.floor(Math.random() * 26) + 1;
+    		char randomChar = (char)(randomCharNumber + 96);
+    		
+    		int randomChangeLocation = (int)Math.floor(Math.random() * 10);
+    		
+    		String randomWordBeforeChange = randomWord;
+    		
+    		randomWord = randomWord.substring(0, randomChangeLocation) + randomChar;
+    		if (randomChangeLocation != 10) { randomWord += randomWordBeforeChange.substring(randomChangeLocation+1); }
+    		
+    		System.out.format("Word #%d: \t%s\n", i, randomWord);
+    	}
+    	
+    }
+}
